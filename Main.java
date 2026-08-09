@@ -12,13 +12,12 @@ public class Main {
         do {
 
             System.out.println("\n===== MENU =====");
-            System.out.println("1 - Cadastrar Funcionario");
-            System.out.println("2 - Cadastrar Caixa");
+            System.out.println("1 - Cadastrar Gerente");
+            System.out.println("2 - Cadastrar Operador de Caixa");
             System.out.println("3 - Realizar Pagamento");
             System.out.println("4 - Listar Funcionarios");
-            System.out.println("5 - Listar Caixas");
-            System.out.println("6 - Listar Pagamentos");
-            System.out.println("7 - Sair");
+            System.out.println("5 - Listar Pagamentos");
+            System.out.println("6 - Sair");
             System.out.print("Escolha uma opcao: ");
 
             opcao = sc.nextInt();
@@ -28,46 +27,65 @@ public class Main {
 
                 case 1:
 
-                    Funcionario funcionario = new Funcionario();
+                    Gerente gerente = new Gerente();
 
                     System.out.print("ID: ");
-                    funcionario.setId(sc.nextInt());
+                    gerente.setId(sc.nextInt());
                     sc.nextLine();
 
                     System.out.print("Nome: ");
-                    funcionario.setNome(sc.nextLine());
+                    gerente.setNome(sc.nextLine());
 
                     System.out.print("CPF: ");
-                    funcionario.setCpf(sc.nextLine());
+                    gerente.setCpf(sc.nextLine());
 
                     System.out.print("Salario: ");
-                    funcionario.setSalario(sc.nextDouble());
+                    gerente.setSalario(sc.nextDouble());
                     sc.nextLine();
 
                     System.out.print("Cargo: ");
-                    funcionario.setCargo(sc.nextLine());
+                    gerente.setCargo(sc.nextLine());
 
-                    loja.cadastrarFuncionario(funcionario);
+                    System.out.print("Setor: ");
+                    gerente.setSetor(sc.nextLine());
 
-                    System.out.println("Funcionario cadastrado com sucesso!");
+                    System.out.print("Bonus: ");
+                    gerente.setBonus(sc.nextDouble());
+                    sc.nextLine();
+
+                    loja.adicionarFuncionario(gerente);
+
                     break;
 
                 case 2:
 
-                    Caixa caixa = new Caixa();
+                    OperadorCaixa operador = new OperadorCaixa();
 
-                    System.out.print("Numero do Caixa: ");
-                    caixa.setNumero(sc.nextInt());
+                    System.out.print("ID: ");
+                    operador.setId(sc.nextInt());
                     sc.nextLine();
 
-                    System.out.print("Operador: ");
-                    caixa.setOperador(sc.nextLine());
+                    System.out.print("Nome: ");
+                    operador.setNome(sc.nextLine());
 
-                    caixa.abrirCaixa();
+                    System.out.print("CPF: ");
+                    operador.setCpf(sc.nextLine());
 
-                    loja.cadastrarCaixa(caixa);
+                    System.out.print("Salario: ");
+                    operador.setSalario(sc.nextDouble());
+                    sc.nextLine();
 
-                    System.out.println("Caixa cadastrado com sucesso!");
+                    System.out.print("Cargo: ");
+                    operador.setCargo(sc.nextLine());
+
+                    System.out.print("Numero do Caixa: ");
+                    operador.setNumeroCaixa(sc.nextInt());
+                    sc.nextLine();
+
+                    loja.adicionarFuncionario(operador);
+
+                    System.out.println("Operador cadastrado com sucesso!");
+
                     break;
 
                 case 3:
@@ -86,32 +104,37 @@ public class Main {
 
                     pagamento.realizarPagamento();
 
-                    loja.cadastrarPagamento(pagamento);
+                    if ("APROVADO".equals(pagamento.getStatus())) {
+                        loja.cadastrarPagamento(pagamento);
+                        System.out.println("Pagamento aprovado!");
+                    }
 
-                    System.out.println("Pagamento realizado com sucesso!");
                     break;
 
                 case 4:
+
                     loja.listarFuncionarios();
+
                     break;
 
                 case 5:
-                    loja.listarCaixas();
+
+                    loja.listarPagamentos();
+
                     break;
 
                 case 6:
-                    loja.listarPagamentos();
-                    break;
 
-                case 7:
                     System.out.println("Sistema encerrado.");
+
                     break;
 
                 default:
+
                     System.out.println("Opcao invalida.");
             }
 
-        } while (opcao != 7);
+        } while (opcao != 6);
 
         sc.close();
     }

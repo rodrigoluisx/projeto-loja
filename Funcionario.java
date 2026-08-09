@@ -1,4 +1,4 @@
-public class Funcionario {
+public abstract class Funcionario {
 
     private int id;
     private String nome;
@@ -53,4 +53,6 @@ public class Funcionario {
         System.out.println("Salário: " + salario);
         System.out.println("Cargo: " + cargo);
     }
+
+    
 }

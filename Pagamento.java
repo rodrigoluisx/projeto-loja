@@ -40,7 +40,7 @@ public class Pagamento {
     public void realizarPagamento() {
 
         if (valorVenda <= 0) {
-            System.out.println("Valor inválido.");
+            System.out.println("Valor invalido.");
             return;
         }
 
@@ -53,7 +53,7 @@ public class Pagamento {
     }
 
     public void mostrarPagamento() {
-        System.out.println("Número do Pagamento: " + numeroPagamento);
+        System.out.println("Numero do Pagamento: " + numeroPagamento);
         System.out.println("Valor da Venda: R$ " + valorVenda);
         System.out.println("Modalidade: " + modalidadePagamento);
         System.out.println("Status: " + status);
