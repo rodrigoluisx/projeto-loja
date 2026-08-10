@@ -24,11 +24,25 @@ public class OperadorCaixa extends Funcionario {
     }
 
     public void abrirCaixa() {
+
+        if (status.equals("ABERTO")) {
+            System.out.println("O caixa ja esta aberto.");
+            return;
+        }
+
         status = "ABERTO";
+        System.out.println("Caixa aberto com sucesso.");
     }
 
     public void fecharCaixa() {
+
+        if (status.equals("FECHADO")) {
+            System.out.println("O caixa ja esta fechado.");
+            return;
+        }
+
         status = "FECHADO";
+        System.out.println("Caixa fechado com sucesso.");
     }
 
     @Override
