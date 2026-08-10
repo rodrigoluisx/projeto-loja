@@ -5,6 +5,7 @@ public abstract class Funcionario {
     private String cpf;
     private double salario;
     private String cargo;
+    private String senha;
 
     public int getId() {
         return id;
@@ -46,13 +47,19 @@ public abstract class Funcionario {
         this.cargo = cargo;
     }
 
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
     public void mostrarDados() {
         System.out.println("ID: " + id);
         System.out.println("Nome: " + nome);
         System.out.println("CPF: " + cpf);
-        System.out.println("Salário: " + salario);
+        System.out.println("Salario: " + salario);
         System.out.println("Cargo: " + cargo);
     }
-
-    
 }
