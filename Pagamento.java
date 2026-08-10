@@ -1,8 +1,7 @@
-public class Pagamento {
+public abstract class Pagamento {
 
     private int numeroPagamento;
-    private double valorVenda;
-    private String modalidadePagamento;
+    private double valor;
     private String status;
 
     public int getNumeroPagamento() {
@@ -13,20 +12,12 @@ public class Pagamento {
         this.numeroPagamento = numeroPagamento;
     }
 
-    public double getValorVenda() {
-        return valorVenda;
+    public double getValor() {
+        return valor;
     }
 
-    public void setValorVenda(double valorVenda) {
-        this.valorVenda = valorVenda;
-    }
-
-    public String getModalidadePagamento() {
-        return modalidadePagamento;
-    }
-
-    public void setModalidadePagamento(String modalidadePagamento) {
-        this.modalidadePagamento = modalidadePagamento;
+    public void setValor(double valor) {
+        this.valor = valor;
     }
 
     public String getStatus() {
@@ -37,25 +28,11 @@ public class Pagamento {
         this.status = status;
     }
 
-    public void realizarPagamento() {
-
-        if (valorVenda <= 0) {
-            System.out.println("Valor invalido.");
-            return;
-        }
-
-        if (modalidadePagamento == null || modalidadePagamento.isEmpty()) {
-            System.out.println("Informe a modalidade.");
-            return;
-        }
-
-        status = "APROVADO";
-    }
+    public abstract void realizarPagamento();
 
     public void mostrarPagamento() {
         System.out.println("Numero do Pagamento: " + numeroPagamento);
-        System.out.println("Valor da Venda: R$ " + valorVenda);
-        System.out.println("Modalidade: " + modalidadePagamento);
+        System.out.println("Valor: R$ " + valor);
         System.out.println("Status: " + status);
     }
 }
