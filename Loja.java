@@ -13,6 +13,7 @@ public class Loja {
     public void adicionarFuncionario(Funcionario funcionario) {
 
         for (Funcionario f : funcionarios) {
+
             if (f.getId() == funcionario.getId()) {
                 System.out.println("Ja existe um funcionario com esse ID.");
                 return;
@@ -36,7 +37,7 @@ public class Loja {
         }
     }
 
-    public void cadastrarPagamento(Pagamento pagamento) {
+    public void adicionarPagamento(Pagamento pagamento) {
         pagamentos.add(pagamento);
     }
 
